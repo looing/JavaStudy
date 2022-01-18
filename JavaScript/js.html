@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1" class="box">
+			
+		</div>
+		<div id="div2" class="box">
+			
+		</div>
+		<div id="div3" class="box">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+	
+		
+		/**
+		 * 1、为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？
+		 * 测试
+		 */
+		var tatalHour = 89;
+		var hour = 89 % 24;
+		var day = (89 - hour) / 24;
+		console.log("一共需要：" + day + " 天 " + hour + " 小时");
+		
+		/**
+		 * 3、
+		 * 
+		 */
+		var a=5+4;			var b=a*2;			var c=b/4;			var d=b-c;			var e=-d;			var f=e%4;			var g=18.4;			var h=g%4;			var i=3;			var j=i++;			var k=++i;			console.log("a="+a);	// 9		console.log("b="+b); 	// 18		console.log("c="+c);	// 4.5		console.log("d="+d);	// 13.5		console.log("e="+e);	// -13.5		console.log("f="+f);	// -1.5		console.log("g="+g);	// 18.4		console.log("h="+h);	// 2.4		console.log("i="+i);	// 5		console.log("j="+j);	// 3		console.log("k="+k);	// 5
+		
+		/**
+		 * 5、
+		 */
+		var n=3;		var m=4;		console.log("n<m is "+(n<m));		// true 		console.log("n=m is "+((++n)==m));	// true		console.log("n>m is "+((++n)>m));	//  true		console.log("n is "+n);				// 5
+		
+		/**
+		 * 6、
+		 */
+		var x=1;		var y=12;		x+=2;			y-=3;			console.log("x= "+x+" y= "+y);		// x=3 y=9		y/=x;			console.log("x= "+x+" y= "+y);		// x=3 y=3		y++;			y%=x;			console.log("x= "+x+" y= "+y);		// x=3 y=1
+		
+		
+		/**
+		 * 7、定义两个数字a和b，不引入第三个变量，交换a和b的值
+		 */
+		var a = 2;
+		var b = 5;
+		a += b;
+		b = a - b;
+		a = a - b;
+		
+		console.log("a=" + a + " b=" +b);
+		
+		/**
+		 * 8、如果成绩大于90 		 *如果是男生(1)送一个新城结衣 		 *如果是女生(0)送一个吴彦祖
+		 */
+		var score = 92;
+		var sex = "男";
+		if (score > 90)
+		{
+			switch (sex)
+			{
+				case "男":
+					console.log("送一个新城结衣");
+					break;
+				case "女":
+					console.log("送一个吴彦祖");
+			}
+		}
+		
+		/**
+		 * 9、妻子嘱咐程序猿丈夫回家的时候买10个苹果, 如果碰到卖西瓜的就买一个,编程模拟场景
+		 */		
+		
+		var watermalean = true;
+		console.log("买10个苹果");
+		if(watermalean) {
+			console.log("买一个西瓜");
+		}
+		
+		/**
+		 * 10、使用if语句实现		 *- 根据月份，输出月份对应的季节和季节特征		 *- 课程表		 *- 根据day的数值输出这一天的课程，day的范围是1–7
+		 */
+		
+		var month = 5;
+		printSeason(month);
+		
+		function printSeason(month){
+			if (month <= 3 && month >= 1)
+			{
+				console.log("现在是春季，特征：万物苏醒");
+			}else if (month <=6)
+			{
+				console.log("现在是夏季，特征：炎热难耐");
+			}else if (month <= 9)
+			{
+				console.log("现在是秋季，特征：万物凋零");
+			}else if (month <= 12)
+			{
+				console.log("现在是冬季，特征：寒冷难耐");
+			}
+			
+		}
+		
+		/**
+		 * 拓展题		 *小明要到美国旅游，可是那里的温度是以华氏度为单位记录的。
+		 *它需要一个程序将华氏温度（80度）转换为摄氏度，
+		 *并以华氏度和摄氏度为单位分别显示该温度。
+		 * 提示：摄氏度与华氏度的转换公式为：摄氏度 = 5/9.0*(华氏度-32)
+		 */
+		
+		var degree = 140;
+		console.log("现在的温度是：" + hToS(degree) + " 摄氏度");
+		
+		function hToS(degree) {
+			return 5 / 9.0 * (degree -32);
+		}
+		
+		// var a = 0 / 0;
+		// console.log(a != a); 
+								
+	</script>
+</html>
