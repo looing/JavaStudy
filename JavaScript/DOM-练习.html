@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>DOM-练习</title>
+		
+		<style type="text/css">
+			#outter {
+				width: 500px;
+				height: 500px;
+				padding: 20px;
+				margin: 0 auto;
+				text-align: center;
+				border: 1px dashed black;
+			}
+			#poetry-warp {
+				float: left;
+				border: 1px solid black;
+			}
+			#control-warp {
+				float: right;
+				height: 450px;
+				width: 200px;
+				border: 1px solid yellow;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div id="container">
+			
+		</div>
+		
+		<div id="outter">
+			
+			<div id="poetry-warp">
+				<h3 id="title">水调歌头</h3>
+				<h4 id="author">作者：苏轼</h4>
+				
+				<p>明月几时有，把酒问青天</p>
+				<p>不知天上宫阙，今夕是何年</p>
+				<p>我越乘风归去，又恐琼楼玉宇</p>
+				<p>高处不胜寒，起舞弄清影</p>
+				<p>何似在人间？转朱阁，低绮户</p>
+				<p>照无眠，不应有恨，何事长向别时圆</p>
+				<p>人有悲欢离合，月有阴晴月缺
+				<p>此事古难全</p>
+				<p>但愿人长久，千里共婵娟</p>
+			</div>
+			
+			<div id="control-warp">
+				<div id="" style="margin-top: 50px;">
+					<input type="color" name="color" id="color" value="" />
+					<button type="button" onclick="setTitleColor()">设置标题背景颜色</button>
+				</div>
+				
+				<div id="" style="margin-top: 50px;">
+					<button type="button" onclick="addAuthorLink()">设置作者外链</button>
+				</div>
+				
+				<div id="weather" style="margin-top: 50px;">
+					输入城市：<input type="text" name="city" id="city" value="" />
+					<button type="button" onclick="getWeather()">获取天气</button>
+					<br> <br>
+					<textarea rows="5" cols="15"></textarea>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+	
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		/**
+		 * 练习
+		 * 	吟诗一首
+		 * 		添加修改标题背景颜色的按钮
+		 * 		添加修改作者连接的按钮
+		 * 	
+		 * 	实现把下面的数据通过点击按钮添加到页面
+		 */
+		
+		function setTitleColor () {
+			var color = document.querySelector("input[type=color]").value;
+			document.getElementById("title").style.backgroundColor = color;
+		}
+		
+		function addAuthorLink() {
+			
+			/**
+			 * 方法一
+			 */
+			
+			// // 获取标题内容并清空
+			// var aContent = document.getElementById("author").innerText;
+			// document.getElementById("author").innerText = "";
+			
+			// // 使用标题内容创建一个 text 节点
+			// var aText = document.createTextNode(aContent);
+			
+			// // 创建 a 标签并将 text 节点插入里面
+			// var aTagName = document.createElement("a");
+			// aTagName.appendChild(aText);
+			
+			// // 给 a 标签设置 href 属性
+			// aTagName.setAttribute("href", "https://www.baidu.com");
+			
+			// // 将设置好的 a 节点 插入为 标题节点 的子节点
+			// document.getElementById("author").appendChild(aTagName);
+			
+			
+			/**
+			 * 方法二
+			 */
+			
+			var aText = document.getElementById("author").innerText;
+			
+			var aHref = "https://www.baidu.com";
+			var aHtml = "<a href = '" + aHref + "'>" + aText + "</a>";
+			document.getElementById("author").innerHTML = aHtml;
+		}
+		
+
+		var timer = setInterval(printNumber, 1000);
+		
+		
+		var count = 10;
+		function printNumber() {
+			console.log(count);
+			
+			if (count-- <= 0) {
+				clearInterval(timer);
+			}
+		}
+				
+	</script>
+	<script type="application/javascript" src=""></script>
+	
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<button type="button" onclick="fun();">计算周长和面积</button>
+	</body>
+	
+	<script type="text/javascript">
+		
+		/**
+		 * 编写方法，用户传入三角形的三条边长
+		判断能否构成三角形
+		如果能，输出周长和面积
+		如果不能，给出提示
+		 */
+		
+
+		
+		// var result = fun(a, b, c);
+		
+		// if(result) {
+		// 	console.log("该三角形的周长为：" + result[0] + "，面积为：" + result[1]);
+		// } else {
+		// 	console.log("无法构成三角形");
+		// }
+		
+		print(4, 6);
+		
+		function fun() {
+			
+			var a = parseInt(prompt("请输入第一条边长"));
+			var b = parseInt(prompt("请输入第二条边长"));
+			var c = parseInt(prompt("请输入第三条边长"));
+			
+			if(a + b > c && a + c > b && b + c > a) {
+				
+				var zc = a + b + c;
+				var area = 1 / 4 * Math.sqrt((a + b + c) * (a + b -c) * (a + c - b) * (b + c - a));
+				//return [zc, area];
+				alert("周长：" + zc + "，面积：" + area);
+				
+			} else {
+				alert("无法构成三角形");
+			} 
+				
+			// return false;
+		}
+		
+		/**
+		 * 编写方法，传入身高和体重计算这个人的BMI，输出体重指数是否正常
+		 */
+		
+		
+		function calBMI(height, weight) {
+			var bmi  = weight / Math.pow(height, 2);
+			if(bmi >= 18.5 && bim <= 23.9) {
+				return true;
+			}
+			return false;
+		}
+		
+		/**
+		 * @param {Object} row 行
+		 * @param {Object} col 列
+		 */
+		function print(row, col) {
+			for (var i = 0; i < row; i++) {
+				for (var j = 0; j < col; j++) {
+					document.write("* ");
+				}
+				document.write("<br>");
+			}
+		}
+		
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script type="text/javascript">
+		
+		/**
+		 * 1、创建数组录入5个学生的年龄
+		 *找到年龄最大/小的值
+		 *找到指定年龄最后一次出现的位置
+		 *计算年龄的总和
+		 *计算平均年龄
+		 *查找年龄为15的学生所在的位置
+		 *查找指定年龄出现的次数
+		 */
+		 
+		var list = [10, 12, 16, 18, 14, 15, 12];
+		
+		console.log("最大年龄：" + list[max(list)]);
+		console.log("最小年龄：" + list[min(list)]);
+		console.log("年龄总和：" + sum(list));
+		console.log("平均年龄为：" + average(list));
+		console.log("15岁在第 " + (findPosition(15, list) + 1) + " 个位置");
+		console.log("12 岁一共出现了 " + repeate(12, list) + " 次");
+		
+		
+		
+		function max(arr) {
+			var maxIndex = 0;
+			
+			for (var i = 1; i < arr.length; i++) {
+				if (arr[i] > arr[maxIndex]) {
+					maxIndex = i;
+				}
+			}
+			
+			return maxIndex;
+		}
+		
+		function min(arr) {
+			var minIndex = 0;
+			
+			for (var i = 1; i < arr.length; i++) {
+				if (arr[i] < arr[minIndex]) {
+					minIndex = i;
+				}
+			}
+			
+			return minIndex;
+		}
+		
+		function sum(arr) {
+			var sum = 0;
+			
+			for (var i = 0; i < arr.length; i++) {
+				sum += arr[i];
+			}
+			
+			return sum;
+		}
+		
+		function average(arr) {
+			return sum(arr) / arr.length;
+		}
+		
+		function findPosition(number, arr) {
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i] == number) {
+					return i;
+				}
+			}
+			return -1;
+		}
+		
+		function repeate(number, arr) {
+			var count = 0;
+			for (var i = 0; i < arr.length; i++) {
+				if(number == arr[i]) {
+					count++;
+				}
+			}
+			
+			return count;
+		}
+		
+		
+		/**
+		 * 2、创建两个数组，分别存入三国演义和水浒传中的5个好汉，编写代码合并两个数组
+		 */
+		
+		var list1 = ["曹操", "孙权", "诸葛亮", "吕布", "周瑜"];
+		var list2 = ["鲁智深", "武松", "宋江", "公孙策", "晁盖"];
+		
+		console.log("合并后的数组为：" + mergeArray(list1, list2));
+		
+		function mergeArray(list1, list2) {
+			var mergeList = new Array(list1.length + list2.length);
+			
+			for (var i = 0; i < mergeList.length; i++) {
+				if(i < list1.length) {
+						mergeList[i] = list1[i];
+				} else {
+					mergeList[i] = list2[i - list1.length];
+				}
+			}
+			
+			return mergeList;
+		}
+		
+		/**
+		 * **扩展题**
+		 *1、在歌唱比赛中,共有10位评委进行打分,在计算歌手得分时,去掉一个最高分,去掉一个最低分,
+		 *然后剩余的8位评委的分数进行平均,就是该选手的最终得分.输入每个评委的评分,求某选手的得分
+		 *2、9宫格写入1--9这些数字，要求每一行数字之和相等，每一列数字之和相等
+		 *问有几种组合方式
+		 */
+		
+		
+		var scoreArr = [4.8, 5, 7, 7.6, 4.5, 8, 6.7, 5.6, 4, 6.3];
+		console.log("去掉一个最高分，去掉一个最低分后，选手最终得分为：" + remainAverage(selectSort(scoreArr)));
+		
+		function remainAverage(arr) {
+			var sum = 0;
+			for (var i = 1; i < arr.length - 1; i++) {
+				sum += arr[i];
+			}
+			
+			return sum / (arr.length - 2);
+		}
+		
+		function selectSort(arr) {
+			
+			for (var i = 0; i < arr.length; i++) {
+				var minIndex = i;
+				
+				for(var j = i+1; j < arr.length; j++) {
+					if(arr[j] < arr[minIndex]) {
+						minIndex = j;
+					}
+				}
+				
+				var tmp = arr[minIndex];
+				arr[minIndex] = arr[i];
+				arr[i] = tmp;
+			}
+			return arr;
+		}
+		
+		/**
+		 * 2、9宫格写入1--9这些数字，要求每一行数字之和相等，每一列数字之和相等
+		 * 问有几种组合方式
+		 */
+		
+		var scoreArr = [4.8, 5, 7, 7.6, 4.5, 8, 6.7, 5.6, 4, 6.3];
+		console.log(maoSort(scoreArr));
+		console.log(selectSort1(scoreArr));
+		console.log(insertSort(scoreArr));
+		
+		function maoSort(arr) {
+			for (var i = 0; i < arr.length - 1; i++) {
+				for (var j = 0; j < arr.length - i; j++) {
+					if(arr[j + 1] < arr[j]) {
+						var tmp = arr[j + 1];
+						arr[j + 1] = arr[j];
+						arr[j] = tmp;
+					}
+				}
+			}
+			return arr;
+		}
+				
+		function selectSort1(arr) {
+			for (var i = 0; i < arr.length; i++) {
+				var minIndex = i;
+				for(var j = j + 1; j < arr.length; j++) {
+					if(arr[j] < arr[minIndex]) {
+						minIndex = j;
+					}
+				}
+				var tmp = arr[i];
+				arr[i] = arr[minIndex];
+				arr[minIndex] = tmp;
+			}
+			return arr;
+		}
+		
+		function insertSort(arr) {
+			for (var i = 1; i < arr.length; i++) {
+				var index = i;
+				
+				while(arr[i] < arr[index] && index >= 0) {
+					arr[index] = arr[index - 1];
+					index--;
+				}
+				
+				arr[index] = arr[i];
+			}
+			
+			return arr;
+		}
+		
+		
+		
+	</script>
+</html>

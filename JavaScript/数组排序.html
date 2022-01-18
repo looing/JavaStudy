@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script type="text/javascript">
+	
+		var arr= [111, 61321, 6513, 16, 132, 134, 621, 316, 5123, 1, 6];
+		
+		console.log("冒泡排序：" + maoSort(arr));
+		console.log("选择排序：" + selectSort(arr));
+		console.log("插入排序：" + insertSort(arr));
+	
+		function maoSort(arr) {
+			
+			for (var i = 0; i < arr.length - 1; i++) {
+				for(var j = 0; j< arr.length - i; j++) {
+					if (arr[j] > arr[j+1]) {
+						var tmp = arr[j+1];
+						arr[j+1] = arr[j];
+						arr[j] = tmp;
+					}
+				}
+			}
+			
+			return arr;
+		}
+		
+		function selectSort(arr) {
+			
+			for (var i = 0; i < arr.length; i++) {
+				var minIndex = i;
+				
+				for(var j = i+1; j < arr.length; j++) {
+					if(arr[j] < arr[minIndex]) {
+						minIndex = j;
+					}
+				}
+				
+				var tmp = arr[minIndex];
+				arr[minIndex] = arr[i];
+				arr[i] = tmp;
+			}
+			return arr;
+		}
+		
+		function insertSort(arr) {
+			for (var i = 1; i < arr.length; i++) {
+				var index = i;
+				
+				while (index - 1 >= 0 && arr[index] < arr[index - 1]) {
+					arr[index] = arr[index - 1]; 
+					index--;
+				}
+				
+				arr[index] = arr[i];
+			}
+			
+			return arr;
+		}
+	</script>
+</html>

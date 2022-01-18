@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style type="text/css">
+			#div01 {
+				width: 300px;
+				height: 300px;
+				border: 1px solid red;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="div01" >
+			
+		</div>
+		<input type="text" name="nickname" id="nickname" value="" />
+	</body>
+	
+	<script type="text/javascript">
+		
+		document.getElementById("div01").onclick = function () {
+			this.innerText += "hello world";
+		}
+
+		document.getElementsByTagName("input")[0].onkeypress = function () {
+			console.log("输入了");
+		}
+			
+	</script>
+	
+</html>
